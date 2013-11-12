@@ -2,13 +2,13 @@
 #include <stdlib.h>
 #include <conio.h>
 
-/*template <class my_type_1>
+template <class my_type_1>
 void swap(my_type_1 &var_1, my_type_1 &var_2)
 {
-    my_type var_3 = var_1;
+    my_type_1 var_3 = var_1;
     var_1 = var_2;
     var_2 = var_3;
-}*/
+}
 
 template <class my_type_2>
 void sort(my_type_2 num_arr[])
@@ -21,10 +21,7 @@ void sort(my_type_2 num_arr[])
         for (unsigned short int k = i+1; k < 3; k++)
             if (num_arr[min_elem] > num_arr[k])
                min_elem = k;
-        temp = num_arr[i];
-        num_arr[i] = num_arr[min_elem];
-        num_arr[min_elem] = temp;
-        /*swap(num_arr[i], num_arr[min_elem]);*/
+        swap(num_arr[i], num_arr[min_elem]);
     }
 }
 
@@ -93,7 +90,6 @@ int main()
     sort(number_chr);
     for (unsigned short int i = 0; i < 3; i++)
         printf("%c ", number_chr[i]);
-    printf("\n\n");
     
 	_getch();
     return 0;
