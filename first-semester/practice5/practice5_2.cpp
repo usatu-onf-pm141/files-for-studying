@@ -5,7 +5,10 @@
 
 float ref_power(float &ref_b, float &ref_d)
 {
-    return powf(ref_b, ref_d);
+    float result = powf(ref_b, ref_d);
+    float &ref_res = result;
+    
+    return ref_res;
 }
 
 int main()
