@@ -32,16 +32,19 @@ int main()
         cout << "6 - Exit the program" << endl;
         
         int menu_item;
-        cout << "\nPlease select one of the menu item [1-6]:";
-        cin >> menu_item;
-        if (!cin.good() || (menu_item < 1) || (menu_item > 6))
-        {
-            cout << "It's an incorrect value!" << endl;
-            getch();
-            return 0;
-        }
+		
+		do
+		{
+			cin.sync();
+			cin.clear();
+			cout << "\nPlease select one of the menu item [1-6]: ";
+			cin >> menu_item;
+			if (!cin.good() || (menu_item < 1) || (menu_item > 6))
+				cout << "It's an incorrect value!" << endl;
+		}
+		while(!cin.good() || (menu_item < 1) || (menu_item > 6));
         
-        Main_Menu[menu_item - 1]();
+		Main_Menu[menu_item - 1]();
     };
     
     _getch();
@@ -56,20 +59,18 @@ void task()
  
 void input()
 {
-    char local_str[255];
-    
     for (int i = 0; i < 7; i++)
     {
-        do
+		do
         {
-            cout << "Enter the temperature of the day #" << i << ": ";
-            scanf("%s", &local_str);
-            array_temp[i] = atof(local_str);
-            if ((array_temp[i] == 0) && (local_str[0] != '0'))
-               printf("It's a wrong value!\n");
+			  cin.sync();
+			  cin.clear();
+              cout << "Enter the temperature of the day #" << i+1 << ": ";
+              cin >> array_temp[i];
+              if (!cin.good())
+                 cout << "It's an incorrect value!" << endl;
         }
-        while((array_temp[i] == 0) && (local_str[0] != '0'));
-     
+        while(!cin.good());   
     }
     
     flag = true;
