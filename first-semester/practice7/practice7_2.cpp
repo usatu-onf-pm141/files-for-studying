@@ -28,6 +28,7 @@ void buble_sort(int **arr, int line, int num)
                 swap(arr[2][j], arr[2][j+1]);
                 swap(arr[3][j], arr[3][j+1]);
                 swap(arr[4][j], arr[4][j+1]);
+				swap(arr[5][j], arr[5][j+1]);
             }
         }
 }
@@ -49,8 +50,8 @@ int main()
 	}
 	while(!cin.good() || (number_teams <= 0));
 
-	arr = new int *[5];
-	for (int i = 0; i < 5; i++)
+	arr = new int *[6];
+	for (int i = 0; i < 6; i++)
         arr[i] = new int[number_teams];
 
 	srand(time(NULL));
@@ -58,6 +59,12 @@ int main()
     // output of array (with calculations)
     
 	cout << "Array of data: \n" << endl;
+	for (int i = 0; i < number_teams; i++)
+	{
+		arr[5][i] = i+1;
+		cout << setw(6) << left << arr[5][i] << " ";
+	}
+	cout << endl;
 	for (int i = 0; i < 3; i++)
 	{
 		for (int j = 0; j < number_teams; j++)
@@ -91,7 +98,7 @@ int main()
     // output of array
     
     cout << "\nWinners of the olympiad: \n" << endl;
-	for (int i = 0; i < 5; i++)
+	for (int i = 0; i < 6; i++)
 	{
         if (i == 3) cout << "The number of medals:" << endl;
         else
